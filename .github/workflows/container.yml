@@ -16,7 +16,7 @@ env:
   # github.repository as <account>/<repo>
   IMAGE_NAME: divialth/docker-rpmbuild-el8
   # base path to the dockerfile
-  DOCKERFILE_PATH: docker
+  DOCKERFILE_PATH: .
   # build platform
   BUILD_PLATFORMS: linux/amd64
   # build variables
