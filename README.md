@@ -1,6 +1,6 @@
-# Centos 8 RPM Build Environment
+# EL 8 RPM Build Environment
 
-This container allows you to use your existing RPM build folders but build within the Centos 8 environment.
+This container allows you to use your existing RPM build folders but build within the EL 8 environment.
 
 The container has:
 
@@ -30,10 +30,10 @@ If you want to build just one spec in particular:
 
 ```bash
 sudo docker run \
-    --name rpmbuild-centos8 \
+    --name rpmbuild-el8 \
     -v /path/to/your/rpmbuild:/home/rpmbuilder/rpmbuild \
     --rm=true \
-    jc21/rpmbuild-centos8 \
+    divialth/rpmbuild-el8 \
     /bin/build-spec /home/rpmbuilder/rpmbuild/SPECS/something.spec
 ```
 
@@ -41,10 +41,10 @@ Or if you want to build all specs in your SPECS folder:
 
 ```bash
 sudo docker run \
-    --name rpmbuild-centos8 \
+    --name rpmbuild-el8 \
     -v /path/to/your/rpmbuild:/home/rpmbuilder/rpmbuild \
     --rm=true \
-    jc21/rpmbuild-centos8 \
+    divialth/rpmbuild-el8 \
     /bin/build-all
 ```
 
@@ -67,10 +67,10 @@ if [ "$1" == "" ]; then
     exit 1;
 else
     sudo docker run \
-        --name rpmbuild-centos8 \
+        --name rpmbuild-el8 \
         -v $RPMBUILDROOT:/home/rpmbuilder/rpmbuild \
         --rm=true \
-        jc21/rpmbuild-centos8 \
+        divialth/rpmbuild-el8 \
         /bin/build-spec /home/rpmbuilder/rpmbuild/SPECS/$SPEC
 
     exit $?

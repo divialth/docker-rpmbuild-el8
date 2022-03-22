@@ -1,6 +1,6 @@
-FROM centos:8
+FROM rockylinux:8
 
-LABEL maintainer="Jamie Curnow <jc@jc21.com>"
+LABEL maintainer="divialth <65872926+divialth@users.noreply.github.com>"
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
@@ -13,7 +13,6 @@ RUN sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-* \
 # Yum
 RUN yum -y install epel-release drpm dnf-plugins-core \
 	&& dnf config-manager --set-enabled powertools \
-	&& yum localinstall -y https://yum.jc21.com/jc21-yum.rpm \
 	&& yum -y update \
 	&& yum -y install scl-utils scl-utils-build which mock git wget curl kernel-devel rpmdevtools rpmlint rpm-build sudo gcc-c++ make automake autoconf yum-utils scl-utils scl-utils-build cmake libtool expect \
 	&& yum -y install aspell-devel bzip2-devel chrpath cyrus-sasl-devel enchant-devel fastlz-devel fontconfig-devel freetype-devel gettext-devel gmp-devel \
